@@ -1,0 +1,1108 @@
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-focus: rgba(37, 99, 235, 0.2);
+  --accent: #0ea5e9;
+  --accent-purple: #8b5cf6;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --border-light: #e2e8f0;
+  --border-focus: #3b82f6;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  --font-sans: 'Outfit', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Noto Serif TC', 'DFKai-SB', 'BiauKai', 'KaiTi', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Background gradient aesthetic */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 10% 20%, rgba(224, 242, 254, 0.5) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(243, 232, 255, 0.4) 0%, transparent 40%),
+              var(--bg-main);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg-glass);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  padding: 0.75rem 1.5rem;
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.brand-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.brand-text-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-text-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Buttons & UI Elements
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+  outline: none;
+  font-family: inherit;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--text-main);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-subtle);
+  border-color: #cbd5e1;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.btn-success:hover {
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   Data Status Banner & Badges
+   ========================================================================== */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.status-live {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.status-demo {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.status-warning {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.live-pulse {
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Filter / Control Bar */
+.control-bar {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-toggle-group {
+  display: flex;
+  background: var(--bg-card-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.25rem;
+  border: 1px solid var(--border-light);
+}
+
+.toggle-btn {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-input-wrapper {
+  position: relative;
+  min-width: 260px;
+  flex: 1;
+  max-width: 420px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.55rem 0.85rem 0.55rem 2.4rem;
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background: white;
+  outline: none;
+  color: var(--text-main);
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.quick-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select-dropdown {
+  padding: 0.55rem 2rem 0.55rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background-color: white;
+  color: var(--text-main);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+.select-dropdown:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+/* Quick tag pills */
+.quick-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.quick-tag-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.quick-tag-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  background: white;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quick-tag-btn:hover, .quick-tag-btn.active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Schedule Display Card
+   ========================================================================== */
+.schedule-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.schedule-header-banner {
+  padding: 1.5rem 2rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.schedule-top-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.schedule-main-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.schedule-meta-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  padding: 0 1rem;
+  border-top: 1px dashed var(--border-light);
+  padding-top: 0.75rem;
+}
+
+.meta-tutor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-class {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Schedule Table UI
+   ========================================================================== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: var(--font-sans);
+  background: white;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #000;
+  padding: 0.5rem 0.25rem;
+  vertical-align: middle;
+}
+
+.schedule-table th {
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #000;
+  height: 40px;
+}
+
+.col-period { width: 50px; }
+.col-time { width: 90px; }
+.col-day { width: 17%; }
+
+.period-num {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.time-slot {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #1e293b;
+  white-space: pre-line;
+  font-weight: 500;
+}
+
+.time-header-label {
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.break-row td {
+  background-color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1.5em;
+  padding: 0.45rem;
+  color: #000;
+  height: 38px;
+}
+
+/* Interactive Cell */
+.schedule-cell {
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.2rem;
+  gap: 0.2rem;
+}
+
+.cell-subject {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.25;
+}
+
+/* Interactive Link Chips for Class or Teacher */
+.interactive-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: #f1f5f9;
+  color: #2563eb;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid #cbd5e1;
+  text-decoration: none;
+}
+
+.interactive-chip:hover {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.25);
+}
+
+.interactive-chip-class {
+  color: #059669;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.interactive-chip-class:hover {
+  background: #059669;
+  color: white;
+  border-color: #059669;
+  box-shadow: 0 2px 5px rgba(5, 150, 105, 0.25);
+}
+
+/* Empty Cell */
+.cell-empty {
+  color: #cbd5e1;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Login Page Styling
+   ========================================================================== */
+.login-backdrop {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at 10% 20%, #1e3a8a 0%, #0f172a 90%);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-backdrop::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  border-radius: 50%;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 10;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-brand-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.35);
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.login-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.35rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.form-input-wrapper {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.6rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #cbd5e1;
+  font-size: 0.95rem;
+  color: #0f172a;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.password-toggle:hover {
+  color: #475569;
+}
+
+.login-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.login-footer-hint {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+}
+
+/* ==========================================================================
+   Modals (CSV Import & Google Sheet Guide)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  width: 100%;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xl);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+.modal-close-btn:hover {
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+}
+
+.modal-body {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.csv-textarea {
+  width: 100%;
+  height: 180px;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  outline: none;
+  resize: vertical;
+  margin-top: 0.5rem;
+}
+
+.csv-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.guide-step {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  background: #f8fafc;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--primary);
+}
+
+.guide-number {
+  background: var(--primary);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PRINT SPECIFICATION (@media print)
+   Strictly formatted to print on ONE single vertical A4 page (一張直式A4)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 12mm 8mm 12mm;
+  }
+
+  /* 列印時所有文字元素一律統一使用標楷體 */
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  #root,
+  .app-wrapper,
+  .main-content,
+  .schedule-card,
+  .schedule-header-banner,
+  .schedule-top-title,
+  .schedule-main-title,
+  .schedule-meta-bar,
+  .schedule-table,
+  .schedule-table th,
+  .schedule-table td,
+  .col-period,
+  .col-time,
+  .col-day,
+  .period-num,
+  .time-slot,
+  .schedule-cell,
+  .cell-subject,
+  .interactive-chip,
+  .interactive-chip-class,
+  .meta-tutor,
+  .meta-class,
+  .break-row td {
+    font-family: 'DFKai-SB', '標楷體', 'BiauKai', 'KaiTi', serif !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 隱藏網頁上非列印用的所有控制項、導覽列、按鈕等 */
+  .no-print,
+  .navbar,
+  .control-bar,
+  .quick-tags,
+  .btn,
+  .status-pill,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .app-wrapper {
+    background: #ffffff !important;
+    min-height: auto !important;
+  }
+
+  .main-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .schedule-card {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 列印專用課表標題區 */
+  .schedule-header-banner {
+    padding: 0 0 4mm 0 !important;
+    background: transparent !important;
+    border-bottom: none !important;
+  }
+
+  .schedule-top-title {
+    font-size: 16pt !important;
+    font-weight: 900 !important;
+    color: #000000 !important;
+    text-align: center !important;
+    margin-bottom: 2mm !important;
+  }
+
+  .schedule-main-title {
+    font-size: 24pt !important;
+    font-weight: 900 !important;
+    color: #000000 !important;
+    letter-spacing: 0.15em !important;
+    text-align: center !important;
+    margin-bottom: 3mm !important;
+  }
+
+  .schedule-meta-bar {
+    border-top: none !important;
+    padding: 0 2mm 2mm 2mm !important;
+    font-size: 16pt !important;
+    font-weight: 900 !important;
+    color: #000000 !important;
+  }
+
+  .meta-tutor,
+  .meta-class,
+  .meta-tutor *,
+  .meta-class * {
+    font-size: 16pt !important;
+    font-weight: 900 !important;
+  }
+
+  /* 表格列印精確設定：調大字體以達最佳易讀性 */
+  .table-responsive {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .schedule-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 2pt solid #000000 !important;
+    page-break-inside: avoid !important;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    border: 1pt solid #000000 !important;
+    color: #000000 !important;
+    padding: 1.5mm 1mm !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+
+  .schedule-table th {
+    font-size: 13pt !important;
+    font-weight: 900 !important;
+    height: 9mm !important;
+  }
+
+  .col-period { width: 38px !important; }
+  .col-time { width: 78px !important; }
+
+  .period-num {
+    font-size: 15pt !important;
+    font-weight: 900 !important;
+  }
+
+  .time-slot {
+    font-size: 10pt !important;
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+    white-space: pre-line !important;
+  }
+
+  .time-header-label {
+    font-size: 12pt !important;
+    font-weight: 900 !important;
+    line-height: 1.3 !important;
+  }
+
+  .break-row td {
+    font-size: 15pt !important;
+    font-weight: 900 !important;
+    letter-spacing: 2em !important;
+    height: 8mm !important;
+    padding: 1mm !important;
+  }
+
+  .schedule-cell {
+    min-height: 15mm !important;
+    gap: 1.2mm !important;
+    padding: 1mm 0.5mm !important;
+  }
+
+  .cell-subject {
+    font-size: 13pt !important;
+    font-weight: 900 !important;
+    color: #000000 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 列印時將互動標籤轉為純文字黑字顯示，並調大字體 */
+  .interactive-chip {
+    border: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    font-size: 12pt !important;
+    font-weight: 900 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .interactive-chip-class {
+    border: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    font-size: 12pt !important;
+    font-weight: 900 !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-wrapper {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .schedule-top-title {
+    font-size: 1.15rem;
+  }
+
+  .schedule-main-title {
+    font-size: 1.5rem;
+  }
+
+  .schedule-meta-bar {
+    font-size: 0.95rem;
+  }
+
+  .schedule-cell {
+    min-height: 48px;
+  }
+
+  .cell-subject {
+    font-size: 0.85rem;
+  }
+
+  .interactive-chip {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.35rem;
+  }
+}
