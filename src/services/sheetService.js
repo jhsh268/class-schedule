@@ -226,7 +226,8 @@ export async function fetchScheduleDatabase(sheetUrl) {
 
   if (url) {
     try {
-      const response = await fetch(url, { method: 'GET' });
+      const cacheBuster = url.includes('?') ? `&_t=${Date.now()}` : `?_t=${Date.now()}`;
+      const response = await fetch(url + cacheBuster, { method: 'GET', cache: 'no-store' });
       if (response.ok) {
         const text = await response.text();
         if (text.includes('<!DOCTYPE html>') || text.includes('<html')) {
