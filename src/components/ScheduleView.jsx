@@ -60,9 +60,7 @@ export default function ScheduleView({
     setShowSuggestions(false);
   };
 
-  // 快捷標籤（選取具代表性的熱門班級/教師，包含王繹儼老師）
-  const defaultQuickClasses = ['701', '702', '801', '812', '912', '914', '915', '101', '201', '301'];
-  const defaultQuickTeachers = ['曾佳菁', '黃怡媛', '莊子瑩', '曾佳怡', '洪立欣', '游秋翎', '王繹儼', '林恩弘'];
+
 
   return (
     <div className="schedule-container">
@@ -251,21 +249,6 @@ export default function ScheduleView({
         </div>
       </div>
 
-      {/* 快捷標籤列（列印時隱藏） */}
-      <div className="quick-tags no-print">
-        <span className="quick-tag-label">
-          {isClassView ? '快捷班級：' : '常用教師：'}
-        </span>
-        {(isClassView ? defaultQuickClasses : defaultQuickTeachers).map((item) => (
-          <button
-            key={item}
-            className={`quick-tag-btn ${selectedItem === item ? 'active' : ''}`}
-            onClick={() => (isClassView ? onSelectClass(item) : onSelectTeacher(item))}
-          >
-            {item} {isClassView && homerooms[item] ? `(${homerooms[item]})` : ''}
-          </button>
-        ))}
-      </div>
 
       {/* 課表本體卡片（螢幕與直式 A4 列印核心區域） */}
       <div className="schedule-card" id="printable-schedule">

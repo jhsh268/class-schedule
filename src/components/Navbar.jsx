@@ -22,18 +22,6 @@ export default function Navbar({
         </div>
 
         <div className="nav-actions">
-          {/* 資料來源狀態徽章 */}
-          <button
-            className={`status-pill ${isLive ? 'status-live' : 'status-demo'}`}
-            onClick={onOpenDataModal}
-            title="點擊檢視資料來源狀態與設定"
-            style={{ cursor: 'pointer', border: 'none' }}
-          >
-            <span className={`status-dot ${isLive ? 'live-pulse' : ''}`} />
-            <span>{isLive ? 'Google Sheet 雲端連線' : '示範資料 (錦和高中)'}</span>
-            <Database size={13} style={{ marginLeft: '2px', opacity: 0.8 }} />
-          </button>
-
           {/* 列印按鈕 */}
           <button className="btn btn-primary" onClick={onPrint} title="以直式 A4 大小列印目前課表 (Ctrl + P)">
             <Printer size={16} />

@@ -477,6 +477,7 @@ body {
   text-align: center;
   font-family: var(--font-sans);
   background: white;
+  border: 2.5px solid #000;
 }
 
 .schedule-table th,
@@ -857,7 +858,7 @@ body {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 8mm 12mm 8mm 12mm;
+    margin: 7mm 18mm 7mm 18mm;
   }
 
   /* 列印時所有文字元素一律統一使用標楷體 */
@@ -929,17 +930,19 @@ body {
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   /* 列印專用課表標題區 */
   .schedule-header-banner {
-    padding: 0 0 4mm 0 !important;
+    padding: 0 0 3mm 0 !important;
     background: transparent !important;
     border-bottom: none !important;
   }
 
   .schedule-top-title {
-    font-size: 16pt !important;
+    font-size: 15pt !important;
     font-weight: 900 !important;
     color: #000000 !important;
     text-align: center !important;
@@ -947,18 +950,18 @@ body {
   }
 
   .schedule-main-title {
-    font-size: 24pt !important;
+    font-size: 23pt !important;
     font-weight: 900 !important;
     color: #000000 !important;
     letter-spacing: 0.15em !important;
     text-align: center !important;
-    margin-bottom: 3mm !important;
+    margin-bottom: 2.5mm !important;
   }
 
   .schedule-meta-bar {
     border-top: none !important;
     padding: 0 2mm 2mm 2mm !important;
-    font-size: 16pt !important;
+    font-size: 15pt !important;
     font-weight: 900 !important;
     color: #000000 !important;
   }
@@ -967,7 +970,7 @@ body {
   .meta-class,
   .meta-tutor *,
   .meta-class * {
-    font-size: 16pt !important;
+    font-size: 15pt !important;
     font-weight: 900 !important;
   }
 
@@ -980,85 +983,93 @@ body {
   .schedule-table {
     width: 100% !important;
     border-collapse: collapse !important;
-    border: 2pt solid #000000 !important;
+    border: 3pt solid #000000 !important;
     page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .schedule-table tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .schedule-table th,
   .schedule-table td {
     border: 1pt solid #000000 !important;
     color: #000000 !important;
-    padding: 1.5mm 1mm !important;
+    padding: 1.2mm 0.8mm !important;
     text-align: center !important;
     vertical-align: middle !important;
   }
 
   .schedule-table th {
-    font-size: 13pt !important;
+    font-size: 12pt !important;
     font-weight: 900 !important;
-    height: 9mm !important;
+    height: 8.5mm !important;
   }
 
-  .col-period { width: 38px !important; }
-  .col-time { width: 78px !important; }
+  .col-period { width: 34px !important; }
+  .col-time { width: 68px !important; }
 
   .period-num {
-    font-size: 15pt !important;
+    font-size: 14pt !important;
     font-weight: 900 !important;
   }
 
   .time-slot {
-    font-size: 10pt !important;
+    font-size: 9pt !important;
     line-height: 1.25 !important;
     font-weight: 700 !important;
     white-space: pre-line !important;
   }
 
   .time-header-label {
-    font-size: 12pt !important;
+    font-size: 11pt !important;
     font-weight: 900 !important;
-    line-height: 1.3 !important;
+    line-height: 1.25 !important;
   }
 
   .break-row td {
-    font-size: 15pt !important;
+    font-size: 14pt !important;
     font-weight: 900 !important;
     letter-spacing: 2em !important;
-    height: 8mm !important;
+    height: 7.5mm !important;
     padding: 1mm !important;
   }
 
   .schedule-cell {
     min-height: 15mm !important;
-    gap: 1.2mm !important;
+    gap: 1mm !important;
     padding: 1mm 0.5mm !important;
   }
 
   .cell-subject {
-    font-size: 13pt !important;
-    font-weight: 900 !important;
+    font-size: 11.5pt !important;
+    font-weight: 700 !important;
     color: #000000 !important;
     line-height: 1.25 !important;
   }
 
-  /* 列印時將互動標籤轉為純文字黑字顯示，並調大字體 */
+  /* 列印時將互動標籤轉為純文字黑字顯示，字體大小與科目相同(11.5pt)，維持正常粗細 */
   .interactive-chip {
     border: none !important;
     background: transparent !important;
     color: #000000 !important;
     padding: 0 !important;
-    font-size: 12pt !important;
-    font-weight: 900 !important;
+    font-size: 11.5pt !important;
+    font-weight: normal !important;
     box-shadow: none !important;
     transform: none !important;
+    line-height: 1.25 !important;
   }
 
   .interactive-chip-class {
     border: none !important;
     background: transparent !important;
     color: #000000 !important;
-    font-size: 12pt !important;
-    font-weight: 900 !important;
+    font-size: 11.5pt !important;
+    font-weight: normal !important;
+    line-height: 1.25 !important;
   }
 }
 
